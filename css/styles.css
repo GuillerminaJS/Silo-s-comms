@@ -1,0 +1,674 @@
+/* Importaciones */
+@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css);
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap');
+/* ..................................................... */
+
+/* CSS general */
+html {
+    min-height: 300%;
+    background-color: #1e1e49;
+opacity: 1;
+/* background-image:  radial-gradient(#6e2076 0.9px, transparent 0.9px), radial-gradient(#6e2076 0.9px, #1e1e49 0.9px); */
+    background-size: 36px 36px;
+    background-position: 0 0,18px 18px;
+    background: linear-gradient(81deg, rgba(10,1,13,1) 0%, rgba(4,79,83,1) 54%, rgba(70,7,83,1) 100%);
+    /* background-color: #141438;
+    background: linear-gradient(135deg, #6e207655 25%, transparent 25%) -11px 0/ 22px 22px, linear-gradient(225deg, #6e2076 25%, transparent 25%) -11px 0/ 22px 22px, linear-gradient(315deg, #6e207655 25%, transparent 25%) 0px 0/ 22px 22px, linear-gradient(45deg, #6e2076 25%, #141438 25%) 0px 0/ 22px 22px; */
+    background-size: cover; 
+    background-repeat: no-repeat; 
+    background-position: center;
+}
+    
+body {
+    height: 300%;
+    margin: 0;
+    color: white;
+    font-family: 'Quicksand', sans-serif;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+    background-color: rgb(0, 0, 0);
+}
+
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px black; 
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: cyan; 
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgb(3, 174, 174); 
+}
+/* ..................................................... */
+
+/* CSS general de todos los carrouseles */
+@keyframes tonext {
+    75% {
+      left: 0;
+    }
+    95% {
+      left: 100%;
+    }
+    98% {
+      left: 100%;
+    }
+    99% {
+      left: 0;
+    }
+}
+  
+@keyframes tostart {
+    75% {
+      left: 0;
+    }
+    95% {
+      left: -300%;
+    }
+    98% {
+      left: -300%;
+    }
+    99% {
+      left: 0;
+    }
+}
+  
+@keyframes snap {
+    96% {
+      scroll-snap-align: center;
+    }
+    97% {
+      scroll-snap-align: none;
+    }
+    99% {
+      scroll-snap-align: none;
+    }
+    100% {
+      scroll-snap-align: center;
+    }
+}
+  
+* {
+    -ms-overflow-style: none;
+}
+  
+ol, li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+  
+.carousel {
+    padding-top: 75%;
+    filter: drop-shadow(0 0 10px #0003);
+    perspective: 100px;
+}
+  
+.carousel__viewport {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    overflow-x: scroll;
+
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+}
+
+.carousel__slide:before {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate3d(-50%,-40%,70px);
+    color: #fff;
+    font-size: 2em;
+}
+  
+.carousel__snapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    scroll-snap-align: center;
+}
+  
+@media (hover: hover) {
+    .carousel__snapper {
+      animation-name: tonext, snap;
+      animation-timing-function: ease;
+      animation-duration: 4s;
+      animation-iteration-count: infinite;
+    }
+  
+    .carousel__slide:last-child .carousel__snapper {
+      animation-name: tostart, snap;
+    }
+}
+/* ..................................................... */
+
+ 
+/* Grid */
+header, .self-intro, .search-bar, .comm-form, .queue, .examples-comms, .button1, .button2, .button3, .button4, .examples-ych, .list, footer {
+    display: flex;
+}
+
+.page {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-template-rows: 20vh 20vh 20vh 20vh 20vh 20vh 20vh 20vh 20vh;
+    grid-template-areas:
+    "a-header a-header a-header"
+    "a-self-intro a-search-bar a-search-bar"
+    "a-self-intro a-comm-form a-queue"
+    "a-examples-comms a-examples-comms a-button1"
+    "a-examples-comms a-examples-comms a-button2"
+    "a-examples-comms a-examples-comms a-button3"
+    "a-examples-comms a-examples-comms a-button4"
+    "a-list a-examples-ych a-examples-ych"
+    "a-footer a-footer a-footer"
+    ;
+}
+
+header {
+    grid-area: a-header;
+}
+
+.self-intro {
+    grid-area: a-self-intro;
+}
+
+.search-bar {
+    grid-area: a-search-bar;
+}
+
+.comm-form {
+    grid-area: a-comm-form;
+}
+
+.queue {
+    grid-area: a-queue;
+}
+
+.examples-comms {
+    grid-area: a-examples-comms;
+}
+
+.button1 {
+    grid-area: a-button1;
+}
+
+.button2 {
+    grid-area: a-button2;
+}
+
+.button3 {
+    grid-area: a-button3;
+}
+
+.button4 {
+    grid-area: a-button4;
+}
+
+.examples-ych {
+    grid-area: a-examples-ych;
+}
+
+.list {
+    grid-area: a-list;
+}
+
+footer {
+    grid-area: a-footer;
+}
+/* ..................................................... */
+
+/* Header */
+img {
+    display: inline;
+    margin-left: 38%;
+    width: 23%;
+    transition: 0.2s;
+}
+
+header a {
+    margin-top: 0%;
+    margin-bottom: 20px;
+    transition: 0.2s;
+    text-decoration: none;
+    color: white;
+    font-size: 30px;
+}
+
+header {
+    border-radius: 0px 0px 5px 5px;
+    background-color: rgb(6, 2, 24);
+    padding-top: 20px;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    z-index: 99999999999;
+    border-bottom: 5px solid cyan;
+    position: fixed;
+    top: 0;
+    transition: 0.2s;
+}
+/* ..................................................... */
+
+/* Info personal */
+.self-intro {
+    background-image: linear-gradient(purple, cyan),
+                      linear-gradient(cyan, cyan),
+                      linear-gradient(cyan, purple),
+                      linear-gradient(cyan, cyan),
+                      linear-gradient(rgb(6, 2, 24), rgb(6, 2, 24));
+    background-position: left bottom, left bottom, right top, right top, 4px 4px;
+    margin-top: 70px;
+    margin-left: 30px;
+    margin-right: 2px;
+    height: 510px;
+    width: 550px;
+    background-size: 4px 50%, 50% 4px, 4px 50%, 50% 4px, calc(100% - 8px) calc(100% - 8px);  
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    padding-left: 30px;
+    padding-right: 20px;
+    border-radius: 50px 0% 50px 0%;
+}
+
+.self-intro h1 {
+    margin-left: 50px;
+    display: list-item;
+    list-style-type: circle;
+}
+
+.self-intro h2 {
+    padding-left: 50px;
+}
+
+.self-intro p {
+    padding-left: 50px;
+}
+/* ..................................................... */
+
+/* Search bar  y shopping cart*/
+.search-bar {
+    margin-left: 25px;
+    margin-top: 100px;
+   
+    height: 30px;
+    padding-left: 65px;
+}
+
+.shopping-cart {
+    background: rgb(44, 4, 65);
+    border-radius: 50px;
+    margin-left: 25px;
+    margin-top: 70px;
+    width: 70px;
+    padding-left: 10px;
+    padding-top: 4px;
+    padding-bottom: 5px;
+    color: white;
+    height: 50px;
+}
+
+.shopping-cart i {
+    padding-right: 7px;  
+}
+
+.search-bar input {
+    background: black;
+    border-style: none;
+    color: white;
+    width: 500px;
+}
+
+button {
+    background: rgb(44, 4, 65);
+    border-style: none;
+    padding-left: 30px;
+    color: white;
+}
+
+button:hover {
+    background: rgb(70, 9, 104);
+}
+
+.button-sb i{
+    color: white;
+    padding-right: 30px;
+}
+
+.submenu {
+    position: relative;
+}
+
+.submenu #carrito {
+    display: none;
+}
+
+.submenu:hover #carrito {
+    display: block;
+    position: absolute;
+    right: 0;
+    color: black;
+    top: 100%;
+    z-index: 90;
+    background-color: white;
+    padding: 20px;
+    min-height: 400px;
+    min-width: 300px;
+}
+
+.vacio {
+    padding: 10px;
+    background-color: crimson;
+    text-align: center;
+    border-radius: 10px;
+    color: black;
+} 
+
+.lista-carrito {
+    z-index: 10000;
+    color: rgba(10,1,13,1);
+}
+
+.lista-carrito th {
+    border-bottom: 1px solid rgb(44, 4, 65);
+}
+
+.nodisplay {
+    display:none;
+}
+/* .....................................................*/
+
+/* Formulario */
+.comm-form {
+    margin-top: 100px;
+    background: rgb(6, 2, 24);
+    border-right: 2px cyan solid;
+    height: 330px;
+    display: flex;
+    flex-direction: column;
+    border-bottom-left-radius: 10%;
+}
+
+
+.comm-form input {
+    margin-bottom: 5px;
+}
+
+.comm-form select {
+    margin-bottom: 5px;
+}
+
+.comm-form p{
+    padding-left: 10px;
+    padding-bottom: 5px;
+    border-bottom: 3px solid cyan;
+}
+
+.comm-form button {
+    margin-top: 10px;
+    color: white;
+    font-family: 'Quicksand', sans-serif;
+}
+
+.comm-form form {
+    display: flex;
+    flex-direction: column;
+    padding-left: 40px;
+    margin-right: 30px;
+}
+/* ..................................................... */
+
+/* Queue */
+.queue {
+    background: rgb(6, 2, 24);
+    margin-top: 100px;
+    margin-right: 30px;
+    border-left: 2px cyan solid;
+    height: 330px;
+    display: flex;
+    flex-direction: column;
+    border-bottom-right-radius: 10%;
+}
+
+.scrollbar {
+    overflow-y: scroll;
+    height: 300px;
+}
+
+.queue p {
+    padding-left: 10px;
+    padding-bottom: 5px;
+    border-bottom: 3px solid cyan;
+}
+
+.queue-content p {
+    border: 0px;
+}
+
+.queue-content li {
+    margin-top: 40px;
+    border-bottom: 2px solid cyan;
+    width: 40px;
+}
+/* ..................................................... */
+
+/* Examples (con carousel) */
+.examples-comms {
+    margin-top: 350px;
+    margin-left: 20px;
+    height: 300px;
+    width: 700px;
+    background-size: 4px 50%, 50% 4px, 4px 50%, 50% 4px, calc(100% - 8px) calc(100% - 8px);  
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    padding-left: 30px;
+    padding-right: 20px;
+    border-radius: 50px 0% 50px 0%;
+}
+
+.examples-comms .carousel__slide {
+    position: relative;
+    flex: 0 0 100%;
+    width: 100%;
+    background-image: url('../img/digital/abyssWatcher.png');
+    background-size: 700px 500.9px;
+    background-repeat: no-repeat;
+}
+ 
+.examples-comms .carousel__slide:nth-child(2n) {
+    background-image: url('../img/digital/SoulSilverheadshot.png');
+}
+
+.examples-comms .carousel__slide:nth-child(3n) {
+    background-image: url('../img/digital/volt.png');
+}
+
+.examples-comms .carousel__slide:nth-child(4n) {
+    background-image: url('../img/digital/Kerm.png');
+}
+/* ..................................................... */
+
+/* Botones de tipos de comisiones */
+.button1 {
+    background-image: linear-gradient(purple, cyan),
+                      linear-gradient(cyan, cyan),
+                      linear-gradient(cyan, purple),
+                      linear-gradient(cyan, cyan),
+                      linear-gradient(rgb(6, 2, 24), rgb(6, 2, 24));
+    background-position: left bottom, left bottom, right top, right top, 4px 4px;
+    background-size: 4px 50%, 50% 4px, 4px 50%, 50% 4px, calc(100% - 8px) calc(100% - 8px);  
+    background-repeat: no-repeat;
+    margin-top: 450px;
+    width: 250px;
+    height: 50px;
+    margin-right: 200px;
+
+}
+
+.button1 p {
+    margin-left: 35px;
+}
+
+.button2 {
+    background-image: linear-gradient(purple, cyan),
+                      linear-gradient(cyan, cyan),
+                      linear-gradient(cyan, purple),
+                      linear-gradient(cyan, cyan),
+                      linear-gradient(rgb(6, 2, 24), rgb(6, 2, 24));
+    background-position: left bottom, left bottom, right top, right top, 4px 4px;
+    background-size: 4px 50%, 50% 4px, 4px 50%, 50% 4px, calc(100% - 8px) calc(100% - 8px);  
+    background-repeat: no-repeat;
+    margin-top: 430px;
+    width: 250px;
+    height: 50px;
+}
+
+.button2 p {
+    margin-left: 105px;
+}
+
+.button3 {
+    background-image: linear-gradient(purple, cyan),
+                      linear-gradient(cyan, cyan),
+                      linear-gradient(cyan, purple),
+                      linear-gradient(cyan, cyan),
+                      linear-gradient(rgb(6, 2, 24), rgb(6, 2, 24));
+    background-position: left bottom, left bottom, right top, right top, 4px 4px;
+    background-size: 4px 50%, 50% 4px, 4px 50%, 50% 4px, calc(100% - 8px) calc(100% - 8px);  
+    background-repeat: no-repeat;
+    margin-top: 410px;
+    width: 250px;
+    height: 50px;
+}
+
+.button3 p {
+    margin-left: 80px;
+}
+
+.button4 {
+    background-image: linear-gradient(purple, cyan),
+                      linear-gradient(cyan, cyan),
+                      linear-gradient(cyan, purple),
+                      linear-gradient(cyan, cyan),
+                      linear-gradient(rgb(6, 2, 24), rgb(6, 2, 24));
+    background-position: left bottom, left bottom, right top, right top, 4px 4px;
+    background-size: 4px 50%, 50% 4px, 4px 50%, 50% 4px, calc(100% - 8px) calc(100% - 8px);  
+    background-repeat: no-repeat;
+    margin-top: 400px;
+    width: 250px;
+    height: 50px;
+}
+
+.button4 p {
+    margin-left: 80px;
+}
+/* ..................................................... */
+
+/* List */
+.list {
+    background-image: linear-gradient(purple, cyan),
+                      linear-gradient(cyan, cyan),
+                      linear-gradient(cyan, purple),
+                      linear-gradient(cyan, cyan),
+                      linear-gradient(rgb(6, 2, 24), rgb(6, 2, 24));
+    background-position: left bottom, left bottom, right top, right top, 4px 4px;
+    background-size: 4px 50%, 50% 4px, 4px 50%, 50% 4px, calc(100% - 8px) calc(100% - 8px);  
+    background-repeat: no-repeat;
+    margin-top: 750px;
+    margin-left: 200px;
+    width: 250px;
+    height: 50px;
+}
+
+.list p {
+    margin-left: 80px;
+}
+/* ..................................................... */
+
+/* Examples YCH */
+.examples-ych {
+    margin-top: 450px;
+    height: 300px;
+    width: 700px;
+    background-size: 4px 50%, 50% 4px, 4px 50%, 50% 4px, calc(100% - 8px) calc(100% - 8px);  
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    padding-left: 30px;
+    padding-right: 20px;
+    border-radius: 50px 0% 50px 0%;
+}
+
+.examples-ych .carousel__slide {
+    position: relative;
+    flex: 0 0 100%;
+    width: 100%;
+    background-image: url('../img/traditional/rottie.png');
+    background-size: 400px 500.9px;
+    background-position-x: center;
+    background-repeat: no-repeat;
+}
+ 
+
+.examples-ych .carousel__slide:nth-child(2n) {
+    background-image: url('../img/traditional/trico.png');
+    width: 100%;
+    background-size: 700px 500.9px;
+    background-repeat: no-repeat;
+}
+
+.examples-ych .carousel__slide:nth-child(3n) {
+    background-image: url('../img/traditional/tiger.jpg');
+    width: 100%;
+    background-size: 700px 500.9px;
+}
+
+.examples-ych .carousel__slide:nth-child(4n) {
+    background-image: url('../img/traditional/skullKid.png');
+    background-size: 400px 500.9px;
+    background-position-x: center;
+}
+/* ..................................................... */
+
+/* Footer */
+footer {
+    margin-top: 960px;
+    background: rgb(6, 2, 24);
+    height: 150px;
+    color: white;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+footer p {
+    margin-left: 50px;
+}
+footer .smedia {
+    margin-left: 20%;
+}
+
+.smedia p{
+    margin-left: 80px;
+}
+.smedia i {
+    margin-left: 40px;
+    color: white;
+}
+

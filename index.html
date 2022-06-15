@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Silo's comms</title>
+    <!-- Importaciones CSS -->
+    <link rel="stylesheet" href="./css/styles.css">
+    <!-- ................... -->
+
+    <!-- Scripts -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script defer="defer" type="module" src="./js/app.js"></script>
+    <script>
+        window.onscroll = function() {scrollFunction()};
+
+        function scrollFunction()  {
+            if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+                document.querySelector("a").style.fontSize = "20px";
+                document.querySelector("a").style.marginBottom = "15px";
+                document.querySelector("img").style.width = "15%";
+                document.querySelector("img").style.marginLeft = "42%";
+                document.querySelector("header").style.height = "85px";
+            } else {
+                document.querySelector("a").style.fontSize = "30px";
+                document.querySelector("a").style.marginBottom = "20px";
+                document.querySelector("img").style.width = "23%";
+                document.querySelector("img").style.marginLeft = "38%";
+                document.querySelector("header").style.height = "150px";
+            }
+        }
+    </script>
+    <!-- ................... -->
+
+</head>
+
+<body>
+    
+    <div class="bg">
+
+        <div class="page">
+            <!-- Encabezado -->
+            <header>
+
+                <div>
+                    <img src="./img/silo4.png" alt="">
+                </div>
+
+                <a href="./index.html">Silo's comms</a>
+            </header>
+            <!-- ................... -->
+
+            <!-- Cuerpo -->
+
+            <!-- Introducción -->
+            <div class="self-intro">
+
+                <h1>Hi there!</h1>
+
+                <h2>Welcome to Silo's Comms</h2>
+
+                <p>
+                    Hello, my name is Silo and this is my website were you <br>
+                    will be able to see information about my avaliable <br>
+                    commisions and also see all types of exampples for each <br>
+                    type of commision. <br>
+                    <br>
+                    Ive been practicing profesionally on traditional art for<br>
+                    10 years now, and started practicing digital art a year ago; <br> 
+                    I mainly draw ferals, monster, animals and armors but i can <br>
+                    also draw anthros, but humanoids and humans are still on<br>
+                    experimental phase.                
+                </p>
+
+                <p>
+                    You'll be able to contact me through discord if you want <br>
+                    more info or give me details regarding your commision; <br>
+                    <br>
+                    · My discord : el tercer miembro#0218
+
+                </p>
+
+            </div>
+            <!-- ................... -->
+
+            <!-- Filtracion por nombre y Shoppingcart(con local storage) -->
+            <div class="search-bar">
+
+                <input type="text" placeholder="Search example...">
+                <button class="button-sb"><i class="fa-solid fa-magnifying-glass"></i></button>
+
+                <ul>
+                    <li class="submenu">
+                        <button id="shopping-cart" class="shopping-cart">
+                            <i class="fa-solid fa-basket-shopping"></i>
+                        </button>
+                        <div id="carrito">
+                            <table id="lista-carrito" class="">
+                               <thead>
+                                  <tr>
+                                        <th>Comm type</th>
+                                        <th>Color type</th>
+                                        <th>Bg type</th>
+                                        <th>Precio</th>
+                                  </tr>
+                               </thead>
+                               <tbody></tbody>
+                            </table>
+                            <button id="btnBorrarCarrito">vaciar carrito</button>
+                            <button id="btnOrder">Procesar commisions</button>
+                         </div>
+                    </li>
+                </ul>
+                
+            </div>
+            <!-- ................... -->
+
+
+            <!-- Formulario para comisionar (falta cambiar los datos) -->
+            <div id="comm-form" class="comm-form">
+
+                <p>Commision form :</p>
+
+            </div>
+            <!-- ................... -->
+
+            <!-- Queue -->
+            <div class="queue">
+                <div class="scrollbar">
+                    <p>Queue status :</p>
+
+                    <div class="queue-content">
+                        <p>(Queue order priority goes from Top first & Bottom last)</p>
+                            <ul>
+                                <li>1</li>
+                                <li>2</li>
+                                <li>3</li>
+                                <li>1</li>
+                                <li>2</li>
+                                <li>3</li>
+                            </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- ................... -->
+
+            <!-- Carousel de ejemplos -->
+            <div class="examples-comms">
+
+                <h2>Comms examples : <button>See more</button> </h2>
+
+                <section class="carousel" aria-label="Gallery">
+
+                    <ol class="carousel__viewport">
+
+                      <li id="carousel__slide1"
+                          tabindex="0"
+                          class="carousel__slide">
+                        <div class="carousel__snapper"></div>
+                      </li>
+
+                      <li id="carousel__slide2"
+                          tabindex="0"
+                          class="carousel__slide">
+                        <div class="carousel__snapper"></div>
+                      </li>
+
+                      <li id="carousel__slide3"
+                          tabindex="0"
+                          class="carousel__slide">
+                        <div class="carousel__snapper"></div>
+                      </li>
+
+                      <li id="carousel__slide4"
+                          tabindex="0"
+                          class="carousel__slide">
+                        <div class="carousel__snapper"></div>
+                      </li>
+
+                    </ol>
+
+                </section>
+
+            </div>
+            <!-- ................... -->
+
+            <!-- Botones del informacion de tipos de comisiones -->
+            <div class="button1"><p>Headshots / Mawshots</p></div>
+
+            <div class="button2"><p>Busts</p></div>
+
+            <div class="button3"><p>Half Bodies</p></div>
+
+            <div class="button4"><p>Full bodies</p></div>
+            <!-- ................... -->
+
+            <!-- Carousel de ejemplos2 -->
+            <div class="examples-ych">
+
+                <h2>Traditional examples :</h2>
+
+                <section class="carousel" aria-label="Gallery">
+
+                    <ol class="carousel__viewport">
+
+                      <li id="carousel__slide1"
+                          tabindex="0"
+                          class="carousel__slide">
+                        <div class="carousel__snapper"></div>
+                      </li>
+
+                      <li id="carousel__slide2"
+                          tabindex="0"
+                          class="carousel__slide">
+                        <div class="carousel__snapper"></div>
+                      </li>
+
+                      <li id="carousel__slide3"
+                          tabindex="0"
+                          class="carousel__slide">
+                        <div class="carousel__snapper"></div>
+                      </li>
+
+                      <li id="carousel__slide4"
+                          tabindex="0"
+                          class="carousel__slide">
+                        <div class="carousel__snapper"></div>
+                      </li>
+
+                    </ol>
+
+                </section>
+                
+            </div>
+            <!-- ................... -->
+
+            <!-- Lista de YCH's -->
+            <div class="list"><p>Traditional</p></div>
+            <!-- ................... -->
+
+            <!-- Footer -->
+            <footer>
+                <div class="tos">
+                    <p>T.O.S</p>
+
+                    <p>· Payment is upfront, you pay first then i draw. <br>
+                       · Keep in mind that i will most likely use your commisions as examples, to<br>
+                        </p>
+                </div>
+                
+
+                <div class="smedia">
+                    <p>Social Media</p>
+                    <a href=""><i class="fa-brands fa-instagram"></i></a>
+                    <a href=""><i class="fa-brands fa-twitter"></i></a>
+                    <a href=""><i class="fa-brands fa-deviantart"></i></a>
+                    <a href=""><i class="fa-brands fa-tumblr"></i></a>
+                </div>
+            </footer>
+            <!-- ................... -->
+        </div>
+        
+    </div>
+    
+    
+</body>
+
+</html>
